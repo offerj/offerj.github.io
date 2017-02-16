@@ -7,10 +7,32 @@
 	<title>adidas</title>
     
    	<link rel="stylesheet" type="text/css" href="fonts.css">
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript">
+	
+	$( document ).ready(function() {
 
+		$(".shop").bind("click",function(){
+			
+			if($(this).hasClass("open")){
+			
+				$(this).removeClass("open");
+			
+			
+			} else {
+				$(this).addClass("open");
+			}
+			
+			
+		});
+
+
+	});
+	
+	</script>
     
     <style type="text/css">
-    #wrapper{max-width:640px;margin:auto;}
+    #wrapper{max-width:440px;margin:auto;}
     img{width:100%;height:auto;display:block;}
     body{margin:0;font-family:sans-serif;}
     
@@ -25,6 +47,7 @@
     	overflow:hidden;
     	height:auto;
     	clear:both;
+    	position:relative;
     }
     
     #intro, .end{
@@ -65,6 +88,40 @@
     	padding:8px 16px 8px	 16px;
     }	
     
+    .shop{
+		font-family:"adiLight";
+		border-bottom:1px solid #ccc;
+		margin-bottom:10px;
+		padding-bottom:10px;
+		padding-top:10px;
+		padding-left:5px;
+		display:block;
+    }
+    
+    .shop:hover{
+    	color:#025f8e;
+    	cursor:pointer;
+		background:rgba(0,0,0,0.05);
+    }
+    
+    .shop .items{
+    	display:none;
+    }
+    
+    .shop.open .items{
+    	display:block;
+    }
+    
+    .shop .icon{
+    	font-size:14px;
+    	display:block;
+    	position:absolute;
+    	right:0;
+    	top:10px;
+    	width:20px;
+    	height:20px;
+    }
+    
     </style>
     
 </head>
@@ -76,7 +133,7 @@
 
 	<section id="intro">
 		<h1>Introducing <strong>Sadiqur</strong></h1>
-		<p><span class="icon"></span> Los Angeles, USA</p>
+		<p><span class="icon"></span> Los Angeles, USA <span style="opacity:0.5;">&nbsp;&nbsp;Posted yesterday</span></p>
 	
 	</section>
 	
@@ -116,11 +173,42 @@ AND TEAMWORK."</h2>
 	
 	
 	</section>
+	<section class="shop">
+	SHOP THE LOOK <span class="icon"></span>
+	
+	<div class="items">
+	<img src="prod1.jpg" />
+	</div>
+	
+	</section>
 	
 	<section>
 	
-		<p>Off court I prefer shoes like the <a href="javascript:void(0);">NMD</a>, especially primeknit. I probably spend more time thinking about how I look off court rather than on but all my time goes to training - either with my team mates or doing weights and stuff at the gym. Speed and power makes such a big difference on the pitch. </p>
+		<p>Off court I prefer shoes like the <a href="javascript:void(0);">NMD</a>, especially primeknit. I'm always keeping an eye on the <a href="javascript:void(0);">release calendar</a> for new drops. I can't wait to get my hands on the <a href="javascript:void(0);">EQT Advances</a> next week.</p>
+		
+		
+		
+		<p> I probably spend more time thinking about how I look off court rather than on but all my time goes to training - either with my team mates or doing weights and stuff at the gym. Speed and power makes such a big difference on the pitch. </p>
 	
+	</section>
+	
+
+	
+	<section>
+	<img src="laydown.jpg" />
+	</section>
+	
+	<section class="shop">
+	SHOP THE LOOK <span class="icon"></span>
+	
+	<div class="items">
+	<img src="prod1.jpg" />
+	</div>
+	
+	</section>
+	
+		<section>
+	<br /><br /><br />
 	</section>
 	
 	
@@ -131,6 +219,16 @@ AND TEAMWORK."</h2>
 	
 	
 	</section>	
+	
+	<section class="shop">
+	SHOP THE LOOK <span class="icon"></span>
+	
+	<div class="items">
+	<img src="prod1.jpg" />
+	</div>
+	
+	</section>	
+	
 	
 	<section>
 
