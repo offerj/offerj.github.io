@@ -1,0 +1,112 @@
+#wrapper{margin:auto;width:928px}
+img{width:100%;height:auto;display:block;}
+body{margin:0;font-family:sans-serif;background:url(bg.png) repeat-x top center;
+background-size: 100% 81px ;}
+
+section#upcoming div{
+	width:294px;
+	height:430px;
+	float:left;
+	margin-right:15px;
+	margin-bottom:16px;
+	margin-top:4px;
+	position:relative;
+}
+
+section#upcoming div span{
+	width:12px;
+	height:14px;
+	background:url(gbp.png);
+	background-size: 100% 100%;
+	position:absolute;
+	bottom:66px;
+	right:55px;
+	cursor:pointer;
+}
+
+section#upcoming div span.USD{
+	background-image:url(usd.png);
+}
+
+
+section#upcoming div:nth-child(3){
+	margin-right:0;
+}
+
+section div:hover img{
+	cursor:pointer;
+	box-shadow:0px 0px 6px rgba(0,0,0,0.2); 
+}
+
+h1{
+	text-indent:-999em;
+	overflow:hidden;
+	background:url(upcoming.png);
+	background-size: 100% 100%;
+	width:346px;
+	height:28px;
+	clear:both;
+}
+
+h1.thisweek{
+	background-image:url(thisweek.png) !important;
+}
+
+
+section#thisweek.grid4 div{
+	width:24%;
+	width:24%;
+	display:block;
+	float:left;
+	margin-right:1%;
+	margin-bottom:1%;
+	margin-top:4px;
+	position:relative;
+}
+
+section#thisweek.grid6{
+	height:310px;
+	overflow:hidden;
+}
+
+
+section#thisweek.grid6 div{
+	width:15.5%;
+	width:15.5%;
+	display:block;
+	float:left;
+	margin-right:1%;
+	margin-bottom:1%;
+	margin-top:4px;
+	position:relative;
+}
+
+#showhide{
+	margin-top:10px;
+}
+
+#showhide span{
+	display:block;
+	width:150px;
+	margin:auto;
+	height:17px;
+	background-size: 100% 100%;
+}
+
+#showhide span:hover{
+	opacity:0.8;
+	cursor:pointer;
+}
+
+#showhide span.hide{
+	background-image:url(hide.png) !important;
+}
+
+#showhide span.show{
+	background-image:url(show.png) !important;
+}
+
+
+
+
+a{color:#0286CD;}
