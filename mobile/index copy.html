@@ -1,0 +1,1722 @@
+
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adidas GDEG Code Demo</title>
+<link href="../adidas-fonts.css" type="text/css" rel="stylesheet" />
+<script src="../jquery-1.11.0.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function($){
+
+
+
+$('input').bind("click",function(){
+	//alert('foo');
+});
+
+$('input').focusout(function(){
+	if(this.value!=""){
+		$(this).parent().parent().addClass('valid'));
+	}
+});
+
+
+});
+</script>
+
+
+<style>
+body {padding:10px;}
+*,
+*:after,
+*:before {
+box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+display: block;
+}
+
+body {
+line-height: 1;
+}
+
+ol,
+ul {
+list-style: none;
+}
+
+blockquote,
+q {
+quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+content: '';
+content: none;
+}
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+input,
+textarea {
+background: none;
+font-family: 'adiHaus';
+}
+
+input:focus,
+input:focus,
+textarea:focus,
+textarea:focus {
+outline: none;
+}
+
+@font-face {
+font-family: 'icomoonregular';
+src: url("https://www.adidas.co.uk/on/demandware.static/Sites-adidas-GB-Site/-/en_GB/v1460258180395/css/fonts/icomoon.eot");
+src: url("https://www.adidas.co.uk/on/demandware.static/Sites-adidas-GB-Site/-/en_GB/v1460258180395/css/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("https://www.adidas.co.uk/on/demandware.static/Sites-adidas-GB-Site/-/en_GB/v1460258180395/css/fonts/icomoon.woff2") format("woff2"), url("https://www.adidas.co.uk/on/demandware.static/Sites-adidas-GB-Site/-/en_GB/v1460258180395/css/fonts/icomoon.woff") format("woff"), url("https://www.adidas.co.uk/on/demandware.static/Sites-adidas-GB-Site/-/en_GB/v1460258180395/css/fonts/icomoon.ttf") format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+body {
+font-family: 'adiHaus';
+padding: 10px;
+background: #fff;
+font-size: 14px;
+}
+
+.wrapper {
+margin: auto;
+padding-bottom: 50px;
+}
+
+.gtitle {
+font-size: 40px;
+padding: 50px 0;
+}
+
+.gtitle,
+.stitle,
+.title {
+font-family: 'adineue_pro_boldregular';
+}
+
+.box {
+position: relative;
+}
+
+.box + .box {
+margin-top: 50px;
+}
+
+.stitle,
+.title {
+font-weight: 700;
+color: #000;
+text-transform: uppercase;
+}
+
+.stitle {
+font-size: 24px;
+}
+
+.title {
+margin-bottom: 25px;
+font-size: 20px;
+padding-right: 50px;
+}
+
+.list {
+
+}
+
+.item {
+position: relative;
+}
+
+.item + .item {
+margin-top: 25px;
+}
+
+.codeblock.expanded .codeblock-title:after {
+content: 'Hide code';
+}
+
+.codeblock.expanded .codeblock-content {
+display: block;
+}
+
+.codeblock .syntaxhighlighter {
+padding: 1em 0;
+}
+
+.codeblock-title {
+cursor: pointer;
+position: absolute;
+top: 0;
+right: 0;
+font-size: 11px;
+line-height: 20px;
+}
+
+.codeblock-title:after {
+content: 'Show code';
+}
+
+.codeblock-content {
+display: none;
+margin: 0 -300px;
+}
+
+.menu {
+position: fixed;
+z-index: 9999;
+left: 0;
+top: 0;
+padding: 10px 0;
+background: rgba(164, 209, 207, 0.14);
+}
+
+.menu-item {
+margin: 10px 15px;
+}
+
+.menu-link {
+color: #5eaeab;
+text-decoration: none;
+}
+
+.menu-link:hover {
+text-decoration: none;
+color: #000;
+}
+
+.menu-link .fa {
+margin-right: 5px;
+}
+
+.tooTop {
+display: none;
+position: fixed;
+bottom: 45px;
+right: 45px;
+z-index: 100;
+cursor: pointer;
+color: #5eaeab;
+font-size: 100px;
+}
+
+.materialize-element{
+	margin:24px 0 16px 0;
+	display:block;
+	
+	
+	
+	
+	
+}
+
+
+.materialize-element.required .materialize-element-label:after,
+.materialize-block.required .materialize-element-label:after {
+content: "*";
+color: #c53622;
+}
+
+.materialize-element.error .materialize-element-message,
+.materialize-block.error .materialize-element-message {
+display: block;
+}
+
+.materialize-element-box {
+position: relative;
+}
+
+.materialize-element-field {
+width: 100%;
+border: 0;
+border-bottom: 1px solid #c8cbcc;
+font-size: 14px;
+line-height: normal;
+background: transparent;
+}
+
+.materialize-element-field:focus {
+border-bottom-color: #363738;
+box-shadow: 0 1px 0 0 #363738;
+}
+
+.materialize-element-label,
+.materialize-element-caption,
+.materialize-block-caption,
+.materialize-element-content,
+.materialize-block-content {
+color: #9a9b9b;
+}
+
+.materialize-element-counter {
+position: absolute;
+top: 100%;
+right: 0;
+font-size: 11px;
+line-height: 1;
+color: #363738;
+margin-top: 5px;
+}
+
+.materialize-element-caption,
+.materialize-block-caption,
+.materialize-element-message,
+.materialize-block-message {
+line-height: 1.63636;
+font-size: 11px;
+}
+
+.materialize-element-message,
+.materialize-block-message {
+display: none;
+color: #ff6d6d;
+}
+
+.materialize-element-caption,
+.materialize-block-caption,
+.materialize-element-message,
+.materialize-block-message,
+.materialize-element-content,
+.materialize-block-content {
+clear: both;
+}
+
+.materialize-element-content,
+.materialize-block-content {
+margin-top: 10px;
+}
+
+.materialize-element-btn {
+position: absolute;
+right: 0;
+top: 50%;
+cursor: pointer;
+}
+
+.materialize-input {
+position: absolute;
+left: -1000em;
+visibility: hidden;
+}
+
+.materialize-element-indicator {
+top: 0;
+cursor: pointer;
+}
+
+.materialize-element-indicator,
+.materialize-element-indicator:before,
+.materialize-element-indicator:after {
+position: absolute;
+}
+
+.materialize-element-indicator:before,
+.materialize-element-indicator:after {
+position: absolute;
+content: '';
+}
+
+.materialize-block-list .materialize-element + .materialize-element {
+margin-top: 15px;
+}
+
+.materialize-element-optional-message {
+display: none;
+}
+
+.materialize-element-line {
+display: none;
+}
+
+.materialize-radio .materialize-element-box,
+.materialize-checkbox .materialize-element-box {
+display: block;
+}
+
+.materialize-radio .materialize-element-indicator,
+.materialize-checkbox .materialize-element-indicator {
+width: 24px;
+height: 24px;
+left: 8px;
+}
+
+.materialize-radio .materialize-element-indicator,
+.materialize-radio .materialize-element-indicator:before,
+.materialize-radio .materialize-element-indicator:after,
+.materialize-checkbox .materialize-element-indicator,
+.materialize-checkbox .materialize-element-indicator:before,
+.materialize-checkbox .materialize-element-indicator:after {
+z-index: 98;
+}
+
+.materialize-radio .materialize-element-label,
+.materialize-checkbox .materialize-element-label {
+line-height: 24px;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.materialize-radio .materialize-element-box {
+padding-left: 34px;
+}
+
+.materialize-radio .materialize-element-indicator {
+left: 0px;
+}
+
+.materialize-radio .materialize-element-indicator:before,
+.materialize-radio .materialize-element-indicator:after {
+border-radius: 50%;
+}
+
+.materialize-radio .materialize-element-indicator:before {
+border: 1px solid #c8cbcc;
+width: 100%;
+height: 100%;
+}
+
+.materialize-radio .materialize-element-indicator:after {
+top: 50%;
+left: 50%;
+margin: -5px 0 0 -5px;
+width: 10px;
+height: 10px;
+background-color: #fff;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+.materialize-radio .materialize-input:checked + .materialize-element-box .materialize-element-indicator:after {
+background-color: #fff;
+}
+
+.materialize-radio .materialize-input:checked + .materialize-element-box .materialize-element-indicator:before {
+background-color: #0286cd;
+border: 1px solid #0286cd;
+}
+
+.materialize-checkbox .materialize-element-box {
+padding-left: 34px;
+}
+
+.materialize-checkbox .materialize-element-indicator {
+left: 0;
+}
+
+.materialize-checkbox .materialize-element-indicator:before {
+width: 100%;
+height: 100%;
+border: 1px solid #c8cbcc;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+.materialize-checkbox .materialize-element-indicator:hover:before {
+border: 1px solid #0286cd;
+}
+
+.materialize-checkbox .materialize-element-indicator:after {
+content: "\e612";
+position: absolute;
+top: 7px;
+left: 6px;
+font: normal normal normal 11px/1 "icomoonregular";
+speak: none;
+text-transform: none;
+color: #fff;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.materialize-checkbox .materialize-input:checked + .materialize-element-box .materialize-element-indicator:before {
+border: none;
+background-color: #0286cd;
+}
+
+.materialize-radio .materialize-element-message,
+.materialize-radio .materialize-element-caption,
+.materialize-radio .materialize-element-content,
+.materialize-checkbox .materialize-element-message,
+.materialize-checkbox .materialize-element-caption,
+.materialize-checkbox .materialize-element-content,
+.materialize-block-radio .materialize-element-message,
+.materialize-block-radio .materialize-element-caption,
+.materialize-block-radio .materialize-element-content {
+margin-top: 10px;
+}
+
+.materialize-radio .materialize-element-message,
+.materialize-radio .materialize-element-caption,
+.materialize-radio .materialize-element-content,
+.materialize-checkbox .materialize-element-message,
+.materialize-checkbox .materialize-element-caption,
+.materialize-checkbox .materialize-element-content {
+padding-left: 34px;
+}
+
+.materialize-select {
+position: relative;
+z-index: 99;
+}
+
+.materialize-select .materialize-element-field {
+position: relative;
+cursor: pointer;
+width: auto;
+height: 32px;
+line-height: 32px;
+border: 1px solid transparent;
+border-bottom-color: #c8cbcc;
+background-color: #fff;
+padding-right: 20px;
+}
+
+.materialize-select .materialize-element-field:after {
+position: absolute;
+top: 50%;
+right: 0;
+margin-top: -7px;
+color: #000;
+content: "\e630";
+font: normal normal normal 14px/1 "icomoonregular";
+speak: none;
+text-transform: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.materialize-select.expanded {
+z-index: 100;
+}
+
+.materialize-select.expanded .materialize-element-field {
+border-color: #c8cbcc;
+margin: 0 -20px;
+padding-left: 20px;
+padding-right: 40px;
+color: #0286cd;
+}
+
+.materialize-select.expanded .materialize-element-field:after {
+right: 20px;
+-webkit-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+
+.materialize-select.expanded .materialize-select-list {
+display: block;
+}
+
+.materialize-select.flexible .materialize-element-field {
+height: auto;
+line-height: 1;
+padding-top: 9px;
+padding-bottom: 9px;
+}
+
+.materialize-select-list {
+display: none;
+position: absolute;
+left: -20px;
+right: -20px;
+top: 100%;
+z-index: 100;
+background: #fff;
+border: 1px solid #c8cbcc;
+border-top: 0;
+}
+
+.materialize-select-option {
+padding: 9px 0 9px 20px;
+margin-right: 20px;
+line-height: 1;
+cursor: pointer;
+}
+
+.materialize-select-option + .materialize-select-option {
+border-top: 1px solid #c8cbcc;
+}
+
+.materialize-textinput.valid .materialize-element-label,
+.materialize-textarea.valid .materialize-element-label,
+.materialize-password.valid .materialize-element-label {
+color: #92d39f;
+}
+
+.materialize-textinput.valid .materialize-element-field,
+.materialize-textarea.valid .materialize-element-field,
+.materialize-password.valid .materialize-element-field {
+border-bottom-color: #92d39f;
+box-shadow: 0 1px 0 0 #92d39f;
+}
+
+.materialize-textinput.error .materialize-element-label,
+.materialize-textarea.error .materialize-element-label,
+.materialize-password.error .materialize-element-label {
+color: #ff6d6d;
+}
+
+.materialize-textinput.error .materialize-element-field,
+.materialize-textarea.error .materialize-element-field,
+.materialize-password.error .materialize-element-field {
+border-bottom-color: #ff6d6d;
+box-shadow: 0 1px 0 0 #ff6d6d;
+}
+
+.materialize-textinput.disabled .materialize-element-label,
+.materialize-textarea.disabled .materialize-element-label,
+.materialize-password.disabled .materialize-element-label {
+color: #c8cbcc;
+}
+
+.materialize-textinput.disabled .materialize-element-field,
+.materialize-textarea.disabled .materialize-element-field,
+.materialize-password.disabled .materialize-element-field {
+border-bottom-color: #c8cbcc;
+box-shadow: 0 1px 0 0 #c8cbcc;
+color: #c8cbcc;
+}
+
+.materialize-textinput .materialize-element-field,
+.materialize-textarea .materialize-element-field,
+.materialize-password .materialize-element-field {
+-webkit-transition: all 0.3s;
+transition: all 0.3s;
+height: 32px;
+color: #363738;
+}
+
+.materialize-textinput .materialize-element-label,
+.materialize-textarea .materialize-element-label,
+.materialize-password .materialize-element-label {
+color: #9a9b9b;
+position: absolute;
+top: 50%;
+left: 0;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+line-height: 1;
+font-size: 14px;
+margin-top: -7px;
+text-transform: uppercase;
+cursor: text;
+}
+
+.materialize-textinput .materialize-element-field:focus + .materialize-element-label,
+.materialize-textinput.not-empty .materialize-element-field + .materialize-element-label,
+.materialize-textarea .materialize-element-field:focus + .materialize-element-label,
+.materialize-textarea.not-empty .materialize-element-field + .materialize-element-label,
+.materialize-password .materialize-element-field:focus + .materialize-element-label,
+.materialize-password.not-empty .materialize-element-field + .materialize-element-label, 
+
+.valid .materialize-element-label
+
+{
+top: -11px;
+margin-top: 0;
+font-size: 11px;
+}
+
+
+
+
+top: -11px;
+margin-top: 0;
+font-size: 11px;
+
+.materialize-textinput .materialize-element-field + .materialize-element-label,
+.materialize-textarea .materialize-element-field + .materialize-element-label,
+.materialize-password .materialize-element-field + .materialize-element-label {
+pointer-events: none;
+}
+
+.materialize-textinput.has-icon .materialize-element-box {
+padding-left: 38px;
+}
+
+.materialize-textinput.has-icon .materialize-element-box:before {
+position: absolute;
+top: 50%;
+left: 0;
+content: '';
+}
+
+.materialize-textinput.has-icon .materialize-element-label {
+left: 38px;
+}
+
+.materialize-textinput.has-icon .materialize-element-field:focus + .materialize-element-label,
+.materialize-textinput.has-icon.not-empty .materialize-element-field + .materialize-element-label {
+left: 0;
+}
+
+.materialize-textinput.icon-phone .materialize-element-box:before {
+margin-top: -10px;
+color: #000;
+content: "\e611";
+font: normal normal normal 20px/1 "icomoonregular";
+speak: none;
+text-transform: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.materialize-textinput.has-counter .materialize-element-message,
+.materialize-textinput.has-counter .materialize-element-caption,
+.materialize-textinput.has-counter .materialize-element-content {
+padding-right: 30px;
+}
+
+.materialize-textinput .materialize-element-box,
+.materialize-textarea .materialize-element-box,
+.materialize-password .materialize-element-box,
+.materialize-select .materialize-element-box {
+margin-top: 11px;
+}
+
+.materialize-password .materialize-element-btn {
+margin-top: -10px;
+}
+
+.materialize-password .materialize-element-btn:before {
+color: #000;
+content: "\e957";
+font: normal normal normal 20px/1 "icomoonregular";
+speak: none;
+text-transform: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.materialize-password.disabled .materialize-element-btn {
+cursor: default;
+}
+
+.materialize-password.disabled .materialize-element-btn:before {
+color: #c8cbcc;
+}
+
+.materialize-textarea .materialize-element-label {
+top: 11px;
+}
+
+.materialize-textarea .materialize-element-field {
+margin-top: 10px;
+padding: 0;
+resize: none;
+min-height: 54px;
+line-height: 18px;
+display: block;
+}
+
+a{
+color:#0286CD;
+text-decoration:none;
+}
+
+a:hover{
+color:#025F8E;
+text-decoration:underline;
+}
+
+p{margin:16px 0 16px 0}
+
+</style>
+</head>
+<body>
+<div id="section-0" class="box">
+<h2 class="stitle">Register</h2>
+
+
+<p>Already have an account? <a href="#">Log in here</a>.
+
+<ul class="list">
+<li class="item">
+
+<h3 class="title">Your name</h3>
+
+<div class="materialize-element materialize-textinput required">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.9826536218170077" class="materialize-element-field" />
+<label for="id-0.9826536218170077" class="materialize-element-label">First name</label>
+</div>
+<div class="materialize-element-message">xxx</div>
+</div>
+<div class="materialize-element materialize-textinput required">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.9826536218170077" class="materialize-element-field" />
+<label for="id-0.9826536218170077" class="materialize-element-label">Last name</label>
+</div>
+<div class="materialize-element-message">xxx</div>
+</div>
+
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-textinput required">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.3486082614399493" class="materialize-element-field" />
+<label for="id-0.3486082614399493" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">With input</h3>
+<div class="materialize-element materialize-textinput not-empty">
+<div class="materialize-element-box">
+<input type="text" value="Pannekoekenstraat 11" id="id-0.5697294340934604" class="materialize-element-field" />
+<label for="id-0.5697294340934604" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Valid</h3>
+<div class="materialize-element materialize-textinput not-empty valid">
+<div class="materialize-element-box">
+<input type="text" value="Pannekoekenstraat 11" id="id-0.10076779639348388" class="materialize-element-field" />
+<label for="id-0.10076779639348388" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error:empty</h3>
+<div class="materialize-element materialize-textinput error">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.7474707271903753" class="materialize-element-field" />
+<label for="id-0.7474707271903753" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-textinput not-empty error">
+<div class="materialize-element-box">
+<input type="text" value="Pannekoekenstraat 11" id="id-0.8584653262514621" class="materialize-element-field" />
+<label for="id-0.8584653262514621" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled:empty</h3>
+<div class="materialize-element materialize-textinput disabled">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.22992292791604996" disabled="disabled" class="materialize-element-field" />
+<label for="id-0.22992292791604996" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled</h3>
+<div class="materialize-element materialize-textinput not-empty disabled">
+<div class="materialize-element-box">
+<input type="text" value="Pannekoekenstraat 11" id="id-0.6835672273300588" disabled="disabled" class="materialize-element-field" />
+<label for="id-0.6835672273300588" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Icon prefix</h3>
+<div class="materialize-element materialize-textinput has-icon icon-phone">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.708343418315053" class="materialize-element-field" />
+<label for="id-0.708343418315053" class="materialize-element-label">telephone</label>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-textinput not-empty">
+<div class="materialize-element-box">
+<input type="text" value="Pannekoekenstraat 11" id="id-0.3463446847163141" class="materialize-element-field" />
+<label for="id-0.3463446847163141" class="materialize-element-label">Address 1</label>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Counter</h3>
+<div class="materialize-element materialize-textinput has-counter">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.7770948472898453" class="materialize-element-field" />
+<label for="id-0.7770948472898453" class="materialize-element-label">Address 1</label>
+<div class="materialize-element-counter">50</div>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Counter &amp; caption &amp; content</h3>
+<div class="materialize-element materialize-textinput has-counter">
+<div class="materialize-element-box">
+<input type="text" value="" id="id-0.926123715005815" class="materialize-element-field" />
+<label for="id-0.926123715005815" class="materialize-element-label">Address 1</label>
+<div class="materialize-element-counter">500</div>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, aliquam.</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-1" class="box">
+<h2 class="stitle">Password</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-password">
+<div class="materialize-element-box">
+<input type="password" value="" id="id-0.1022756292950362" class="materialize-element-field" />
+<label for="id-0.1022756292950362" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+<div class="materialize-element-caption">At least 8 characters</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-password required">
+<div class="materialize-element-box">
+<input type="password" value="" id="id-0.08200348191894591" class="materialize-element-field" />
+<label for="id-0.08200348191894591" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+<div class="materialize-element-caption">At least 8 characters</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">With input</h3>
+<div class="materialize-element materialize-password not-empty">
+<div class="materialize-element-box">
+<input type="password" value="345345345" id="id-0.5013564687687904" class="materialize-element-field" />
+<label for="id-0.5013564687687904" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+<div class="materialize-element-caption">At least 8 characters</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Valid</h3>
+<div class="materialize-element materialize-password not-empty valid">
+<div class="materialize-element-box">
+<input type="password" value="345345345" id="id-0.2327599418349564" class="materialize-element-field" />
+<label for="id-0.2327599418349564" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+<div class="materialize-element-caption">At least 8 characters</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error:empty</h3>
+<div class="materialize-element materialize-password error">
+<div class="materialize-element-box">
+<input type="password" value="" id="id-0.7568964210804552" class="materialize-element-field" />
+<label for="id-0.7568964210804552" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-password not-empty error">
+<div class="materialize-element-box">
+<input type="password" value="Pannekoekenstraat 11" id="id-0.6413380384910852" class="materialize-element-field" />
+<label for="id-0.6413380384910852" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled:empty</h3>
+<div class="materialize-element materialize-password disabled">
+<div class="materialize-element-box">
+<input type="password" value="" id="id-0.33231313643045723" disabled="disabled" class="materialize-element-field" />
+<label for="id-0.33231313643045723" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+<li class="item">
+<h3 class="title">Disabled</h3>
+<div class="materialize-element materialize-password not-empty disabled">
+<div class="materialize-element-box">
+<input type="password" value="345345345" id="id-0.6519769832957536" disabled="disabled" class="materialize-element-field" />
+<label for="id-0.6519769832957536" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-password not-empty">
+<div class="materialize-element-box">
+<input type="password" value="345345345" id="id-0.971340260701254" class="materialize-element-field" />
+<label for="id-0.971340260701254" class="materialize-element-label">Your password</label>
+<span class="materialize-element-btn"></span>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-2" class="box">
+<h2 class="stitle">Textarea/multiline</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-textarea">
+<div class="materialize-element-box">
+<textarea id="id-0.23645271616987884" class="materialize-element-field"></textarea>
+<label for="id-0.23645271616987884" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-textarea required">
+<div class="materialize-element-box">
+<textarea id="id-0.46426331042312086" class="materialize-element-field"></textarea>
+<label for="id-0.46426331042312086" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">With text</h3>
+<div class="materialize-element materialize-textarea not-empty">
+<div class="materialize-element-box">
+<textarea id="id-0.4683511876501143" class="materialize-element-field">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+<label for="id-0.4683511876501143" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Valid</h3>
+<div class="materialize-element materialize-textarea not-empty valid">
+<div class="materialize-element-box">
+<textarea id="id-0.2620975838508457" class="materialize-element-field">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+<label for="id-0.2620975838508457" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error:empty</h3>
+<div class="materialize-element materialize-textarea error">
+<div class="materialize-element-box">
+<textarea id="id-0.5206952875014395" class="materialize-element-field"></textarea>
+<label for="id-0.5206952875014395" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-textarea not-empty error">
+<div class="materialize-element-box">
+<textarea id="id-0.1293635885231197" class="materialize-element-field">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+<label for="id-0.1293635885231197" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled:empty</h3>
+<div class="materialize-element materialize-textarea disabled">
+<div class="materialize-element-box">
+<textarea id="id-0.30130174197256565" disabled="disabled" class="materialize-element-field"></textarea>
+<label for="id-0.30130174197256565" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled</h3>
+<div class="materialize-element materialize-textarea not-empty disabled">
+<div class="materialize-element-box">
+<textarea id="id-0.4754745389800519" disabled="disabled" class="materialize-element-field">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+<label for="id-0.4754745389800519" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-textarea not-empty">
+<div class="materialize-element-box">
+<textarea id="id-0.6964215955231339" class="materialize-element-field">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+<label for="id-0.6964215955231339" class="materialize-element-label">Label text</label>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-3" class="box">
+<h2 class="stitle">Select</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-select collapsed">
+<input type="hidden" />
+<div class="materialize-element-box">
+<div class="materialize-element-field">select region</div>
+<div class="materialize-select-list">
+<div class="materialize-select-option">Option 0</div>
+<div class="materialize-select-option">Option 1</div>
+<div class="materialize-select-option">Option 2</div>
+<div class="materialize-select-option">Option 3</div>
+<div class="materialize-select-option">Option 4</div>
+</div>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-select collapsed required">
+<input type="hidden" />
+<div class="materialize-element-box">
+<div class="materialize-element-field">select region</div>
+<div class="materialize-select-list">
+<div class="materialize-select-option">Option 0</div>
+<div class="materialize-select-option">Option 1</div>
+<div class="materialize-select-option">Option 2</div>
+<div class="materialize-select-option">Option 3</div>
+<div class="materialize-select-option">Option 4</div>
+</div>
+</div>
+<div class="materialize-element-message">Field is empty</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-select collapsed error">
+<input type="hidden" />
+<div class="materialize-element-box">
+<div class="materialize-element-field">select region</div>
+<div class="materialize-select-list">
+<div class="materialize-select-option">Option 0</div>
+<div class="materialize-select-option">Option 1</div>
+<div class="materialize-select-option">Option 2</div>
+<div class="materialize-select-option">Option 3</div>
+<div class="materialize-select-option">Option 4</div>
+</div>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled</h3>
+<div class="materialize-element materialize-select collapsed disabled">
+<input type="hidden" />
+<div class="materialize-element-box">
+<div class="materialize-element-field">select region</div>
+<div class="materialize-select-list">
+<div class="materialize-select-option">Option 0</div>
+<div class="materialize-select-option">Option 1</div>
+<div class="materialize-select-option">Option 2</div>
+<div class="materialize-select-option">Option 3</div>
+<div class="materialize-select-option">Option 4</div>
+</div>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-select collapsed">
+<input type="hidden" />
+<div class="materialize-element-box">
+<div class="materialize-element-field">select region</div>
+<div class="materialize-select-list">
+<div class="materialize-select-option">Option 0</div>
+<div class="materialize-select-option">Option 1</div>
+<div class="materialize-select-option">Option 2</div>
+<div class="materialize-select-option">Option 3</div>
+<div class="materialize-select-option">Option 4</div>
+</div>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Flexible field</h3>
+<div class="materialize-element materialize-select collapsed flexible">
+<input type="hidden" />
+<div class="materialize-element-box">
+<div class="materialize-element-field">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, earum!</div>
+<div class="materialize-select-list">
+<div class="materialize-select-option">Option 0</div>
+<div class="materialize-select-option">Option 1</div>
+<div class="materialize-select-option">Option 2</div>
+<div class="materialize-select-option">Option 3</div>
+<div class="materialize-select-option">Option 4</div>
+</div>
+</div>
+<div class="materialize-element-message">Error message lorem ipsum</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-4" class="box">
+<h2 class="stitle">Checkbox</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-checkbox">
+<input type="checkbox" id="id-0.6801456331741065" class="materialize-input" />
+<label for="id-0.6801456331741065" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-checkbox required">
+<input type="checkbox" id="id-0.03244491876102984" class="materialize-input" />
+<label for="id-0.03244491876102984" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Checked</h3>
+<div class="materialize-element materialize-checkbox valid">
+<input type="checkbox" id="id-0.08367380872368813" checked="checked" class="materialize-input" />
+<label for="id-0.08367380872368813" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-checkbox error">
+<input type="checkbox" id="id-0.46977358194999397" class="materialize-input" />
+<label for="id-0.46977358194999397" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled</h3>
+<div class="materialize-element materialize-checkbox disabled">
+<input type="checkbox" id="id-0.01828165166079998" class="materialize-input" />
+<label for="id-0.01828165166079998" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-checkbox">
+<input type="checkbox" id="id-0.7181809982284904" class="materialize-input" />
+<label for="id-0.7181809982284904" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">With content</h3>
+<div class="materialize-element materialize-checkbox">
+<input type="checkbox" id="id-0.6131187356077135" class="materialize-input" />
+<label for="id-0.6131187356077135" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-5" class="box">
+<h2 class="stitle">Single radio</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.6322398134507239" class="materialize-input" />
+<label for="id-0.6322398134507239" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-radio required">
+<input type="radio" id="id-0.3236390019301325" class="materialize-input" />
+<label for="id-0.3236390019301325" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Checked</h3>
+<div class="materialize-element materialize-radio valid">
+<input type="radio" id="id-0.3835970754735172" checked="checked" class="materialize-input" />
+<label for="id-0.3835970754735172" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-radio error">
+<input type="radio" id="id-0.2293359632603824" class="materialize-input" />
+<label for="id-0.2293359632603824" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Disabled</h3>
+<div class="materialize-element materialize-radio disabled">
+<input type="radio" id="id-0.8233961183577776" class="materialize-input" />
+<label for="id-0.8233961183577776" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.8708827362861484" class="materialize-input" />
+<label for="id-0.8708827362861484" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+<div class="materialize-element-caption">Help text lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">With content</h3>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.19522007298655808" class="materialize-input" />
+<label for="id-0.19522007298655808" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-message">Error message</div>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-6" class="box">
+<h2 class="stitle">Radio Block</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-block-radio valid">
+<input type="" id="id-0.7981703612022102" checked="checked" class="materialize-input" />
+<div class="materialize-block-list">
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.79817036120221020" name="id-0.7981703612022102" checked="checked" class="materialize-input" />
+<label for="id-0.79817036120221020" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.79817036120221021" name="id-0.7981703612022102" class="materialize-input" />
+<label for="id-0.79817036120221021" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.79817036120221022" name="id-0.7981703612022102" class="materialize-input" />
+<label for="id-0.79817036120221022" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.79817036120221023" name="id-0.7981703612022102" class="materialize-input" />
+<label for="id-0.79817036120221023" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.79817036120221024" name="id-0.7981703612022102" class="materialize-input" />
+<label for="id-0.79817036120221024" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+</div>
+<div class="materialize-element-message materialize-block-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Required</h3>
+<div class="materialize-element materialize-block-radio required">
+<input type="" id="id-0.8196891769766808" class="materialize-input" />
+<div class="materialize-block-list">
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.81968917697668080" name="id-0.8196891769766808" class="materialize-input" />
+<label for="id-0.81968917697668080" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.81968917697668081" name="id-0.8196891769766808" class="materialize-input" />
+<label for="id-0.81968917697668081" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.81968917697668082" name="id-0.8196891769766808" class="materialize-input" />
+<label for="id-0.81968917697668082" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.81968917697668083" name="id-0.8196891769766808" class="materialize-input" />
+<label for="id-0.81968917697668083" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.81968917697668084" name="id-0.8196891769766808" class="materialize-input" />
+<label for="id-0.81968917697668084" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+</div>
+<div class="materialize-element-message materialize-block-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Error</h3>
+<div class="materialize-element materialize-block-radio error">
+<input type="" id="id-0.17419804958626628" class="materialize-input" />
+<div class="materialize-block-list">
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.174198049586266280" name="id-0.17419804958626628" class="materialize-input" />
+<label for="id-0.174198049586266280" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.174198049586266281" name="id-0.17419804958626628" class="materialize-input" />
+<label for="id-0.174198049586266281" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.174198049586266282" name="id-0.17419804958626628" class="materialize-input" />
+<label for="id-0.174198049586266282" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.174198049586266283" name="id-0.17419804958626628" class="materialize-input" />
+<label for="id-0.174198049586266283" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.174198049586266284" name="id-0.17419804958626628" class="materialize-input" />
+<label for="id-0.174198049586266284" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+</div>
+<div class="materialize-element-message materialize-block-message">Error message</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">Help text</h3>
+<div class="materialize-element materialize-block-radio">
+<input type="" id="id-0.9493944430723786" class="materialize-input" />
+<div class="materialize-block-list">
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.94939444307237860" name="id-0.9493944430723786" class="materialize-input" />
+<label for="id-0.94939444307237860" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.94939444307237861" name="id-0.9493944430723786" class="materialize-input" />
+<label for="id-0.94939444307237861" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.94939444307237862" name="id-0.9493944430723786" class="materialize-input" />
+<label for="id-0.94939444307237862" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.94939444307237863" name="id-0.9493944430723786" class="materialize-input" />
+<label for="id-0.94939444307237863" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.94939444307237864" name="id-0.9493944430723786" class="materialize-input" />
+<label for="id-0.94939444307237864" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+</div>
+</div>
+<div class="materialize-element-message materialize-block-message">Error message</div>
+<div class="materialize-element-caption materialize-block-caption">Help text lorem ipsum</div>
+</div>
+</li>
+<li class="item">
+<h3 class="title">With content</h3>
+<div class="materialize-element materialize-block-radio">
+<input type="" id="id-0.4882565385196358" class="materialize-input" />
+<div class="materialize-block-list">
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.48825653851963580" name="id-0.4882565385196358" class="materialize-input" />
+<label for="id-0.48825653851963580" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.48825653851963581" name="id-0.4882565385196358" class="materialize-input" />
+<label for="id-0.48825653851963581" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.48825653851963582" name="id-0.4882565385196358" class="materialize-input" />
+<label for="id-0.48825653851963582" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.48825653851963583" name="id-0.4882565385196358" class="materialize-input" />
+<label for="id-0.48825653851963583" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+<div class="materialize-element materialize-radio">
+<input type="radio" id="id-0.48825653851963584" name="id-0.4882565385196358" class="materialize-input" />
+<label for="id-0.48825653851963584" class="materialize-element-box">
+<i class="materialize-element-indicator"></i>
+<div class="materialize-element-label">Name</div>
+</label>
+<div class="materialize-element-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+</div>
+<div class="materialize-element-message materialize-block-message">Error message</div>
+<div class="materialize-element-content materialize-block-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus.</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="section-7" class="box">
+<h2 class="stitle">Static text</h2>
+<ul class="list">
+<li class="item">
+<h3 class="title">Start</h3>
+<div class="materialize-element materialize-static">
+<input type="hidden" />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, aliquam.</div>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

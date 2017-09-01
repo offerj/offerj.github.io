@@ -1,0 +1,624 @@
+
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" ">
+<title>Adidas GDEG Code Demo</title>
+<link href="../adidas-fonts.css" type="text/css" rel="stylesheet" />
+<script src="../jquery-1.11.0.min.js"></script>
+
+<style type="text/css">
+body {
+font-family: 'adiHaus';
+padding: 0;
+margin:0;
+background: #fff;
+font-size: 14px;
+}
+
+a{
+color:#0286CD;
+text-decoration:none;
+}
+
+a:hover{
+color:#025F8E;
+text-decoration:underline;
+}
+h1,h2,h3,h4,h5,h6{
+font-family:'adiBlack';
+text-transform: uppercase;
+margin:32px 0 4px 0;
+padding:0;
+}
+
+
+h3{
+	font-size:28px
+}
+
+h4{
+	font-size:18px
+}
+
+div.field{
+	margin-top:18px;
+}
+
+div.field div{
+	position:relative;
+}
+
+div span{
+	font-size:11px;
+	display:block;
+	height:0;
+	overflow:hidden;
+	margin-top:4px;
+	color:#C53622;
+	-webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+div span.active{
+	height:12px;
+}
+
+label{
+	text-transform: uppercase;
+	color:#9A9B9B;
+	font-size:14px;
+	position:absolute;
+	top:14px;
+	left:10px;
+	z-index:1;
+	background:#fff;
+	-webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.guidance {
+	font-size:12px;
+	line-height:15px;
+	color:#616363;
+	margin:8px 0 8px 0;
+	clear:both;
+	display:block;
+}
+
+.guidance span{
+	height:auto !important;
+	color:#616363;
+	margin:auto;
+	display:block;
+}
+
+div.focus label{
+	top:-4px;
+	font-size:11px;
+	z-index:200;
+}
+
+em{
+	color:#C53622;
+	font-style:normal;
+}
+
+.valid, .valid label, .valid em{
+	color:#3e9e51
+}
+
+.error label, .error em{
+	color:#C53622;
+}
+
+
+.valid input{
+	border-bottom:2px solid #3e9e51;
+}
+
+.error input{
+	border-bottom:2px solid #C53622;
+}
+
+input[type="text"], input[type="password"], input[type="number"]  {
+	border:0;
+	padding:16px 8px 8px 8px;
+	background:rgba(255,255,100,0);
+	outline: none;
+	z-index:100;
+	position:relative;
+	font-size:14px;
+	font-family: 'adiHaus';
+	width:90%;
+	border:1px solid #C8CBCC;
+-webkit-border-radius: 0;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+-webkit-appearance: none;
+}
+
+#form{
+	max-width:320px;
+	margin:15px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#show{
+	position:absolute;
+	right:26px;
+	top:16px;
+	display:block;
+	z-index:200;
+	cursor:pointer;
+	font-weight:normal;
+	color:#000;
+}
+
+#show:hover{
+	opacity:0.7;
+}
+
+.button{
+border:0;
+	padding:16px 8px 8px 8px;
+	background:rgba(255,255,100,0);
+	outline: none;
+	z-index:100;
+	position:relative;
+	font-size:14px;
+	font-family: 'adiHaus';
+	width:90%;
+	border:1px solid #C8CBCC;
+-webkit-border-radius: 0;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+-webkit-appearance: none;
+	font-family:'adiBlack';
+	border:0;
+	width:95%;
+	display:block;
+	background:#0286CD;
+	color:#fff;
+	text-transform:uppercase;
+	line-height:12px;
+	padding-bottom:14px;
+
+}
+
+.button:hover{
+	cursor:pointer;
+	background:#025F8E;
+}
+
+
+.button:disabled, .button:disabled:hover{
+	background:#C8CBCC;
+	cursor:default;
+}
+
+img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+.checkbox{
+	display:inline-block;
+
+}
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function($){
+
+function checkValidate(){
+
+	var formFields = $('input').length;
+	
+	// dirty way to exclude the submit button and checkboxes
+	formFields-=3;
+	
+	var validElements = $('div.valid').length;
+	
+	//document.title = "["+validElements+"/"+formFields+" ... "+$("#toc").is(':checked');
+	
+
+	
+	//
+	
+	if((validElements == formFields) && ($("#toc").is(':checked')==true)){
+		
+		$("#submit").removeAttr('disabled');
+	
+	} else {
+	
+		$("#submit").attr('disabled', 'disabled');
+	
+	}
+	
+	
+}
+
+
+$('#submit').click(function(){
+
+
+	if(window.location.hash.substr(1)=="desktop") {
+		top.location.href='../desktop/desktop-myaccount.html';
+	} else {
+		top.location.href='mobile-myaccount.html';
+	}
+
+});
+
+
+$('input[type="text"], input[type="password"], input[type="number"]').bind("focus",function(){
+	$(this).parent().parent().addClass("focus");
+	checkValidate();
+});
+
+$('input[type="text"], input[type="password"], input[type="number"]').focusout(function(){
+	
+	//if($(this).parent().attr("class")=="error") {
+	
+		if(this.value=="" || this.value==undefined){
+			$(this).parent().parent().removeClass("focus");
+			$(this).parent().attr("class","default");
+		} else {
+			$(this).parent().attr("class","valid");
+		}	
+	
+	//}
+	checkValidate();
+});
+
+$('#toc').change(function() {
+	checkValidate();
+});
+
+$('#show').bind("click",function(){
+	
+	
+	if($('#show').text()=="SHOW"){
+	
+		//alert($('#show').html());
+	
+		$('#show').html("HIDE");
+		$("#wordpass").attr("type","text");
+	} else {
+		$("#wordpass").attr("type","password");
+		$('#show').html("SHOW");
+	}
+
+	
+});
+
+$('#dob input').bind("keyup blur focus",function(){
+	
+	
+	
+	
+	if (this.value.length > this.maxlength) this.value = this.value.slice(0, this.maxlength);
+	
+	
+	var error=false;
+	
+	
+	
+	 var check_no=$('#dob').closest("div").find('.error').length;
+	 
+	 if(check_no > 0){
+	   $("#dob span").attr("class","active");
+	 } else {
+	 	 $("#dob span").attr("class","");
+	 }
+	
+	
+		
+	
+	
+	
+	if($(this).attr("id")=="dd"){
+		
+		
+		if($(this).is(":focus")) { 
+			// focus here, let the user input...	BUT confirm if their date is good
+			
+			$(this).parent().attr("class","default");
+			
+			if(parseInt(this.value) > 0 && parseInt(this.value) <= 12){
+				$(this).parent().attr("class","valid");
+				
+			}
+			
+			
+			
+		} else {		
+		
+		
+		
+			if(this.length == 0 || this.value==""){
+				$(this).parent().attr("class","default");
+			} else if(parseInt(this.value) > 0 && parseInt(this.value) <= 31){
+				$(this).parent().attr("class","valid");
+			} else {
+				$(this).parent().attr("class","error");
+				$("#dob span").attr("class","active");
+			}
+		
+		}
+		
+	}
+	
+	if($(this).attr("id")=="mm"){
+		
+		
+		if($(this).is(":focus")) { 
+			// focus here, let the user input...	BUT confirm if their date is good
+			
+			$(this).parent().attr("class","default");
+			
+			if(parseInt(this.value) > 0 && parseInt(this.value) <= 12){
+				$(this).parent().attr("class","valid");
+			}
+			
+			
+			
+		} else {
+		
+			if(this.length == 0 || this.value==""){
+				$(this).parent().attr("class","default");
+			} else if(parseInt(this.value) > 0 && parseInt(this.value) <= 12){
+				$(this).parent().attr("class","valid");
+			} else {
+				$(this).parent().attr("class","error");
+				$("#dob span").attr("class","active");
+			}
+			
+		}
+		
+	}
+	
+	if($(this).attr("id")=="yyyy"){
+		
+		
+		if($(this).is(":focus")) { 
+		// focus here, let the user input...	BUT confirm if their date is good
+			
+			$(this).parent().attr("class","default");
+			
+			if(parseInt(this.value) > 1900 && parseInt(this.value) <= 2017){
+				$(this).parent().attr("class","valid");
+			}
+			
+			
+			
+		} else {
+		// otherwise this is a blur event and we can check the full number
+		
+			if(this.length == 0 || this.value==""){
+				$(this).parent().attr("class","default");
+			} else if(parseInt(this.value) > 1900 && parseInt(this.value) <= 2017){
+				$(this).parent().attr("class","valid");
+			} else {
+				$(this).parent().attr("class","error");
+				$("#dob span").attr("class","active");
+
+			}
+		
+		
+		
+		
+		}
+		
+		
+		
+	}	
+	
+	checkValidate();
+	
+});
+
+
+$('#wordpass').bind("keyup",function(){
+
+	var correct=0;
+	
+	if($('#wordpass').val().length > 7){
+		$('#characters').css("opacity",0.5);
+		correct++;
+	} else {
+		$('#characters').css("opacity",1);
+	}
+
+
+	var matches = $('#wordpass').val().match(/\d+/g);
+	if (matches != null) {
+		$('#number').css("opacity",0.5);
+		correct++;
+	} else {
+		$('#number').css("opacity",1);
+	}
+	
+	
+	
+	var letters = $('#wordpass').val().match(/[A-Za-z]/g);
+	if (letters != null) {
+		$('#letter').css("opacity",0.5);
+		correct++;
+	} else {
+		$('#letter').css("opacity",1);
+	}		
+	
+	
+	if(correct==3){
+		$(this).parent().attr("class","valid");
+		
+		
+		$("#password span").attr("class","active valid");
+		$("#password span").html("Your password is secure");
+
+
+		$(".guidance").stop().animate({
+			opacity: 0,
+			height: 0
+		  }, 200, function() {
+			// Animation complete.
+			
+			$(".guidance").css("display","none");
+			
+		  });
+
+
+
+	} else {
+		$("#password span").html("Please enter a valid password");
+		$("#password span").attr("class","error");
+		
+		$(".guidance").animate({
+			opacity: 1,
+			height: "auto"
+		  }, 200, function() {
+			// Animation complete.
+			$(".guidance").css("display","block");
+		  });
+		
+		
+		
+		
+		
+	}
+	
+
+	checkValidate();
+
+});
+
+});
+</script>
+
+
+</head>
+
+<body>
+
+<form id="form" autocomplete="off">
+
+<h3>Register</h3>
+
+<p>Already have an account? <a href="#">Log in here</a>.</p>
+
+<h4>Your name</h4>
+
+<div class="field">
+	<div class="default">
+		<label>First name <em>*</em></label>
+		<input type="text" value="" />
+	</div>
+	<span>Please enter a first name</span>
+</div>
+
+<div class="field">
+	<div class="default">
+		<label>Last name <em>*</em></label>
+		<input type="text" value="" />
+	</div>
+	<span>Please enter a first name</span>
+</div>
+
+<h4>Date of birth</h4>
+
+<div id="dob">
+	<div class="field" style="width:31%;float:left;">
+		<div class="default">
+			<label>DD <em>*</em></label>
+			<input id="dd" type="number" maxlength="2" pattern="\d*" value="" style="width:70%;"/>
+		</div>
+	</div>
+	<div class="field" style="width:31%;float:left;">
+		<div class="default">
+			<label>MM <em>*</em></label>
+			<input id="mm" type="number" maxlength="2" pattern="\d*" value="" style="width:70%;" />
+		</div>
+	</div>
+	<div class="field" style="width:31%;float:left;">
+		<div class="default">
+			<label>YYYY <em>*</em></label>
+			<input id="yyyy" type="number" maxlength="4" pattern="\d*" value="" style="width:70%;" />
+		</div>	
+	</div>
+<br  style="clear:both;" />
+
+<span>Please enter a valid date of birth. For example, 28 01 1990</span>
+
+	
+</div>
+<p class="guidance">
+We collect date of birth to comply with our <a href="#" tabindex="-1">privacy policy</a>.
+Plus you'll get a surprise from us on your birthday!
+</p>
+
+<h4>Login details</h4>
+
+<div class="field">
+	<div class="default">
+		<label>Email address <em>*</em></label>
+		<input type="text" value="" />
+	</div>
+	<span>Please enter a valid email address</span>
+</div>
+
+<div class="field" id="password">
+	<div class="default">
+		<label>Password <em>*</em></label>
+		<input id="wordpass" type="password" value="" />
+		<strong id="show">SHOW</strong>
+	</div>
+	<span>Please enter a valid password</span>
+</div>
+
+
+<p class="guidance">
+<span style="color:#000">Your password needs:</span>
+<span id="letter">One letter</span>
+<span id="number">One number</span>
+<span id="characters">At least eight characters</span>
+
+
+</p>
+<br />
+<p>
+<input type="checkbox" class="checkbox" /> I would like to stay up to date with adidas<br />
+<br />
+<input type="checkbox" class="checkbox" id="toc" /> I have read and agree with the <a href="#">terms and
+conditions</a> for website use <em>*</em>
+
+</p>
+
+<br /><br />
+<input type="submit" id="submit" value="Register" disabled="disabled" class="button"> 
+
+
+
+</form>
+
+
+
+
+
+</body>
+
+</html>

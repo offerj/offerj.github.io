@@ -1,0 +1,267 @@
+
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" ">
+<title>Adidas GDEG Code Demo</title>
+<link href="../adidas-fonts.css" type="text/css" rel="stylesheet" />
+<script src="../jquery-1.11.0.min.js"></script>
+
+<style type="text/css">
+body {
+font-family: 'adiHaus';
+padding: 10px;
+background: #fff;
+font-size: 14px;
+}
+
+a{
+color:#0286CD;
+text-decoration:none;
+}
+
+a:hover{
+color:#025F8E;
+text-decoration:underline;
+}
+h1,h2,h3,h4,h5,h6{
+font-family:'adiBlack';
+text-transform: uppercase;
+margin:32px 0 4px 0;
+padding:0;
+}
+
+h4{
+	font-size:16px
+}
+
+div.field{
+	margin-top:18px;
+}
+
+div.field div{
+	position:relative;
+}
+
+div.field span{
+	font-size:11px;
+	display:none;
+}
+
+label{
+	text-transform: uppercase;
+	color:#9A9B9B;
+	font-size:14px;
+	position:absolute;
+	top:14px;
+	left:10px;
+	z-index:1;
+	background:#fff;
+	-webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.guidance {
+	font-size:12px;
+	line-height:15px;
+	color:#616363;
+	margin:8px 0 8px 0;
+	clear:both;
+	display:block;
+}
+
+div.focus label{
+	top:-4px;
+	font-size:11px;
+	z-index:200;
+}
+
+em{
+	color:#C53622;
+	font-style:normal;
+}
+
+.valid label, .valid em{
+	color:#3e9e51
+}
+
+.valid input{
+	border-bottom:1px solid #3e9e51;
+}
+
+input{
+	border:0;
+	padding:16px 8px 8px 8px;
+	background:rgba(255,255,100,0);
+	outline: none;
+	z-index:100;
+	position:relative;
+	font-size:14px;
+	font-family: 'adiHaus';
+	width:90%;
+	border:1px solid #C8CBCC;
+}
+
+#form{
+	max-width:320px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#show{
+	position:absolute;
+	right:26px;
+	top:16px;
+	display:block;
+	z-index:200;
+	cursor:pointer;
+}
+
+#show:hover{
+	opacity:0.7;
+}
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function($){
+
+
+
+$('input').bind("focus",function(){
+	$(this).parent().parent().addClass("focus");
+});
+
+$('input').focusout(function(){
+	
+	if(this.value=="" || this.value==undefined){
+		$(this).parent().parent().removeClass("focus");
+		$(this).parent().attr("class","default");
+	} else {
+		$(this).parent().attr("class","valid");
+	}	
+});
+
+$('#show').bind("click",function(){
+	
+	
+	if($('#show').text()=="SHOW"){
+	
+		//alert($('#show').html());
+	
+		$('#show').html("HIDE");
+		$("#wordpass").attr("type","text");
+	} else {
+		$("#wordpass").attr("type","password");
+		$('#show').html("SHOW");
+	}
+
+	
+});
+
+$('input').keypress(function(){
+	
+});
+
+
+
+});
+</script>
+
+
+</head>
+
+<body>
+
+<div id="form">
+
+<h4>Your name</h4>
+
+<div class="field">
+	<div class="default">
+		<label>First name <em>*</em></label>
+		<input type="text" value="" />
+	</div>
+	<span>Please enter a first name</span>
+</div>
+
+<div class="field">
+	<div class="default">
+		<label>Last name <em>*</em></label>
+		<input type="text" value="" />
+	</div>
+	<span>Please enter a first name</span>
+</div>
+
+<h4>Date of birth</h4>
+
+<div class="field" style="width:31%;float:left;">
+	<div class="default">
+		<label>Day <em>*</em></label>
+		<input id="dd" type="number" max="2" pattern="\d*" onKeyPress="if(this.value.length==2) return false;" value="" style="width:70%;"/>
+	</div>
+</div>
+<div class="field" style="width:31%;float:left;">
+	<div class="default">
+		<label>Month <em>*</em></label>
+		<input id="mm" type="number" max="2" pattern="\d*" onKeyPress="if(this.value.length==2) return false;" value="" style="width:70%;" />
+	</div>
+</div>
+<div class="field" style="width:31%;float:left;">
+	<div class="default">
+		<label>Year <em>*</em></label>
+		<input id="yyyy" type="number" max="4" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" value="" style="width:70%;" />
+	</div>	
+	<span>Please enter a valid date of birth. For example, 28 01 1990</span>
+</div>
+<br  style="clear:both;" />
+<p class="guidance">
+We collect date of birth to comply with our <a href="#">privacy policy</a>.
+Plus you'll get a surprise from us on your birthday!
+</p>
+
+<h4>Login details</h4>
+
+<div class="field">
+	<div class="default">
+		<label>Email address <em>*</em></label>
+		<input type="text" value="" />
+	</div>
+	<span>Please enter a valid email address</span>
+</div>
+
+<div class="field">
+	<div class="default">
+		<label>Password <em>*</em></label>
+		<input id="wordpass" type="password" value="" />
+		<span id="show">SHOW</span>
+	</div>
+	<span>Please enter a valid password</span>
+</div>
+
+<p class="guidance">
+<span style="color:#000">Your password needs:<br /></span>
+<span id="letter">One letter</span><br />
+<span id="number">One number</span><br />
+<span id="charaters">At least eight characters</span>
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
